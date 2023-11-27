@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JasonExerciseTracker.Views.AddPage">
     <ContentPage.Content>
-        <Grid>
+        <Grid Padding="20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -11,10 +11,10 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Button Grid.Row="0" Text="+" Clicked="IncrementCounter_Clicked" HorizontalOptions="Center" />
-            <Entry Grid.Row="1" x:Name="counterEntry" Text="0" Keyboard="Numeric" HorizontalOptions="Center" />
-            <Button Grid.Row="2" Text="-" Clicked="DecrementCounter_Clicked" HorizontalOptions="Center" />
-            <Button Grid.Row="3" Text="Submit" Clicked="SubmitButton_Clicked" HorizontalOptions="Center" />
+            <Button Grid.Row="0" Text="+" Clicked="IncrementCounter_Clicked" HorizontalOptions="FillAndExpand" />
+            <Entry Grid.Row="1" x:Name="counterEntry" Text="0" Keyboard="Numeric" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" />
+            <Button Grid.Row="2" Text="-" Clicked="DecrementCounter_Clicked" HorizontalOptions="FillAndExpand" />
+            <Button Grid.Row="3" Text="Submit" Clicked="SubmitButton_Clicked" HorizontalOptions="FillAndExpand" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

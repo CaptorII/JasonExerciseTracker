@@ -21,10 +21,9 @@ namespace JasonExerciseTracker.Views
 
         public void UpdateProgress()
         {
-            DateField.Text = DateTime.Today.ToString("dd/MM/yyyy");
-            // TimeSpan averageMins = TimeSpan.FromMinutes(Exercise.GetAverageExercisePerDay());
-            // AverageMinsField.Text = $"{(int)averageMins.TotalHours}:{averageMins.Minutes:00}";
-            AverageMinsField.Text = Exercise.GetAverageExercisePerDay().ToString("00");
+            TimeSpan daysSinceStartOfYear = DateTime.Today - new DateTime(DateTime.Today.Year, 1, 1);
+            DateField.Text = DateTime.Today.ToString("dd/MM/yyyy") + " - Day " + (daysSinceStartOfYear.Days + 1);
+            AverageMinsField.Text = Exercise.GetAverageMinutesPerDay().ToString("00");
             TimeSpan totalMins = TimeSpan.FromMinutes(Exercise.minutesOfExerciseDone);
             TotalMinsField.Text = $"{(int)totalMins.TotalHours}:{totalMins.Minutes:00}";
             if (Exercise.IsGoalAchieved())

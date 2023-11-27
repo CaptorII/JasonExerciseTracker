@@ -14,16 +14,18 @@ namespace JasonExerciseTracker.Models
             minutesOfExerciseDone += minutes;
         }
 
-        public static double GetAverageExercisePerDay()
+        public static double GetAverageMinutesPerDay()
         {
-            return minutesOfExerciseDone / 365;
+            DateTime startOfYear = new DateTime(DateTime.Today.Year, 1, 1);
+            TimeSpan daysSinceStartOfYear = DateTime.Today - startOfYear;
+            return minutesOfExerciseDone / (double)(daysSinceStartOfYear.Days + 1);
         }
 
         public static int GetTargetMinutes()
         {
             DateTime startOfYear = new DateTime(DateTime.Today.Year, 1, 1);
-            TimeSpan daysPassed = DateTime.Today - startOfYear;
-            return dailyTarget * daysPassed.Days;
+            TimeSpan daysSinceStartOfYear = DateTime.Today - startOfYear;
+            return dailyTarget * (daysSinceStartOfYear.Days + 1);
         }
 
         public static int GetDifferenceFromTarget()
@@ -33,7 +35,7 @@ namespace JasonExerciseTracker.Models
 
         public static bool IsGoalAchieved()
         {
-            return GetTargetMinutes() <= 0;
+            return minutesOfExerciseDone >= GetTargetMinutes();
         }
     }
 }

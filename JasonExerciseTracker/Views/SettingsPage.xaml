@@ -3,10 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JasonExerciseTracker.Views.SettingsPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="20">
+            <Label Text="Daily Exercise Target (in minutes)" />
+            <Entry x:Name="targetEntry" Keyboard="Numeric" />
+            <Button Text="Submit" Clicked="SubmitButton_Clicked" />
+
+            <Label Text="Background Color" />
+            <Picker x:Name="backgroundColorPicker">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type Color}">
+                        <Color>White</Color>
+                        <Color>LightGray</Color>
+                        <Color>LightBlue</Color>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Label Text="Text Color" />
+            <Picker x:Name="textColorPicker">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type Color}">
+                        <Color>Black</Color>
+                        <Color>DarkGray</Color>
+                        <Color>DarkBlue</Color>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Button Text="Reset App Data" Clicked="ResetData_Clicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

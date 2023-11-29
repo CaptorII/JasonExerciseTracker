@@ -1,36 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:jasonexercisetracker="clr-namespace:JasonExerciseTracker" 
+             x:DataType="jasonexercisetracker:MainPage"
              x:Class="JasonExerciseTracker.Views.SettingsPage">
     <ContentPage.Content>
-        <StackLayout Padding="20">
-            <Label Text="Daily Exercise Target (in minutes)" />
+        <StackLayout Padding="20" BackgroundColor="{StaticResource ThemeBackgroundColour}">
+            <Label Text="Daily Exercise Target (in minutes)" TextColor="{StaticResource ThemeTextColour}" />
             <Entry x:Name="targetEntry" Keyboard="Numeric" />
-            <Button Text="Submit" Clicked="SubmitButton_Clicked" />
+            <Button Text="Submit" Clicked="SubmitButton_Clicked" TextColor="{StaticResource ThemeTextColour}" />
 
-            <Label Text="Background Color" />
-            <Picker x:Name="backgroundColorPicker">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type Color}">
-                        <Color>White</Color>
-                        <Color>LightGray</Color>
-                        <Color>LightBlue</Color>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
+            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                <Label Text="Dark Mode" VerticalOptions="Center" TextColor="{StaticResource ThemeTextColour}" />
+                <Switch x:Name="themeSwitch" Toggled="ThemeSwitch_Toggled" VerticalOptions="Center" />
+            </StackLayout>
 
-            <Label Text="Text Color" />
-            <Picker x:Name="textColorPicker">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type Color}">
-                        <Color>Black</Color>
-                        <Color>DarkGray</Color>
-                        <Color>DarkBlue</Color>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
-
-            <Button Text="Reset App Data" Clicked="ResetData_Clicked" />
+            <Button Text="Reset App Data" Clicked="ResetData_Clicked" TextColor="{StaticResource ThemeTextColour}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

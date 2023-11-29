@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:jasonexercisetracker="clr-namespace:JasonExerciseTracker" 
+             x:DataType="jasonexercisetracker:MainPage"
              x:Class="JasonExerciseTracker.Views.AddPage">
     <ContentPage.Content>
-        <Grid Padding="20">
+        <Grid Padding="20" BackgroundColor="{StaticResource ThemeBackgroundColour}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -11,10 +13,10 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Button Grid.Row="0" Text="+" Clicked="IncrementCounter_Clicked" HorizontalOptions="FillAndExpand" />
+            <Button Grid.Row="0" Text="+" Clicked="IncrementCounter_Clicked" HorizontalOptions="FillAndExpand" TextColor="{StaticResource ThemeTextColour}" />
             <Entry Grid.Row="1" x:Name="counterEntry" Text="0" Keyboard="Numeric" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" />
-            <Button Grid.Row="2" Text="-" Clicked="DecrementCounter_Clicked" HorizontalOptions="FillAndExpand" />
-            <Button Grid.Row="3" Text="Submit" Clicked="SubmitButton_Clicked" HorizontalOptions="FillAndExpand" />
+            <Button Grid.Row="2" Text="-" Clicked="DecrementCounter_Clicked" HorizontalOptions="FillAndExpand" TextColor="{StaticResource ThemeTextColour}" />
+            <Button Grid.Row="3" Text="Submit" Clicked="SubmitButton_Clicked" HorizontalOptions="FillAndExpand" TextColor="{StaticResource ThemeTextColour}" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -22,7 +22,27 @@ namespace JasonExerciseTracker.Views
         {
             if (double.TryParse(targetEntry.Text, out double mins))
             {
-                Exercise.dailyTarget += (int)mins;
+                if (mins > 5)
+                {
+                    mins = 5;
+                }
+                else if (mins < 60)
+                {
+                    mins = 60;
+                }
+                Exercise.dailyTarget = (int)mins;
+            }
+        }
+
+        private void ThemeSwitch_Toggled(object sender, ToggledEventArgs e)
+        {
+            if (!e.Value)
+            {
+                ((MainPage)Application.Current.MainPage).ChangeToDarkTheme();
+            }
+            else
+            {
+                ((MainPage)Application.Current.MainPage).ChangeToLightTheme();
             }
         }
 
@@ -32,10 +52,14 @@ namespace JasonExerciseTracker.Views
                 "Confirm", "Cancel");
             if (confirmed)
             {
-                Exercise.minutesOfExerciseDone = 0;
-                Exercise.dailyTarget = 30;
+                ResetData();
                 await DisplayAlert("Reset Data", "App data has been reset.", "OK");
             }
+        }
+        public void ResetData()
+        {
+            Exercise.minutesOfExerciseDone = 0;
+            Exercise.dailyTarget = 30;
         }
     }
 }

@@ -44,6 +44,7 @@ namespace JasonExerciseTracker.Views
 
         protected override void OnAppearing()
         {
+            base.OnAppearing();
             UpdateProgress();
         }
     }

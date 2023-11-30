@@ -10,10 +10,14 @@
             <Entry x:Name="targetEntry" Keyboard="Numeric" />
             <Button Text="Submit" Clicked="SubmitButton_Clicked" TextColor="{StaticResource ThemeTextColour}" />
 
-            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-                <Label Text="Dark Mode" VerticalOptions="Center" TextColor="{StaticResource ThemeTextColour}" />
-                <Switch x:Name="themeSwitch" Toggled="ThemeSwitch_Toggled" VerticalOptions="Center" />
-            </StackLayout>
+            <Picker x:Name="themePicker" Title="Choose Theme" SelectedIndexChanged="ThemePicker_Selected">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Light Mode</x:String>
+                        <x:String>Dark Mode</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
 
             <Button Text="Reset App Data" Clicked="ResetData_Clicked" TextColor="{StaticResource ThemeTextColour}" />
         </StackLayout>

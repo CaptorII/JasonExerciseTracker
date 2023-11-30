@@ -4,8 +4,8 @@
              x:Class="JasonExerciseTracker.App">
     <Application.Resources>
         <ResourceDictionary>
-                <Color x:Key="ThemeBackgroundColour">DarkGray</Color>
-            <Color x:Key="ThemeTextColour">White</Color>
+                <Color x:Key="ThemeBackgroundColour">White</Color>
+            <Color x:Key="ThemeTextColour">Black</Color>
             </ResourceDictionary>
         </Application.Resources>
 </Application>

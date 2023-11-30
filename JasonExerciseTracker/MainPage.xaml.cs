@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using JasonExerciseTracker.Models;
 using Xamarin.Forms;
 
 namespace JasonExerciseTracker
@@ -15,16 +10,20 @@ namespace JasonExerciseTracker
             InitializeComponent();
         }
 
-        public void ChangeToDarkTheme()
+        public void ApplyTheme(string theme)
         {
-            Application.Current.Resources["ThemeBackgroundColour"] = Color.DarkGray;
-            Application.Current.Resources["ThemeTextColour"] = Color.White;
-        }
-
-        public void ChangeToLightTheme()
-        {
-            Application.Current.Resources["ThemeBackgroundColour"] = Color.White;
-            Application.Current.Resources["ThemeTextColour"] = Color.Black;
+            AppSettings.Theme = theme; // save theme to preferences      
+            if (theme == "light")
+            {
+                Application.Current.Resources["ThemeBackgroundColour"] = Color.White;
+                Application.Current.Resources["ThemeTextColour"] = Color.Black;
+            }
+            else
+            {
+                Application.Current.Resources["ThemeBackgroundColour"] = Color.DimGray;
+                Application.Current.Resources["ThemeTextColour"] = Color.White;
+            }
+            Application.Current.MainPage = new MainPage(); // force refresh UI to apply theme changes
         }
     }
 }

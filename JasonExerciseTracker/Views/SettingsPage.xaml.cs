@@ -1,10 +1,5 @@
 ﻿using JasonExerciseTracker.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -22,44 +17,42 @@ namespace JasonExerciseTracker.Views
         {
             if (double.TryParse(targetEntry.Text, out double mins))
             {
-                if (mins > 5)
+                if (mins < 5)
                 {
                     mins = 5;
                 }
-                else if (mins < 60)
+                else if (mins > 60)
                 {
                     mins = 60;
                 }
                 Exercise.dailyTarget = (int)mins;
+                AppSettings.DailyTarget = (int)mins;
+                targetEntry.Text = "";
             }
         }
 
-        private void ThemeSwitch_Toggled(object sender, ToggledEventArgs e)
+        private void ThemePicker_Selected(object sender, EventArgs e)
         {
-            if (!e.Value)
+            if (themePicker.SelectedIndex == 0)
             {
-                ((MainPage)Application.Current.MainPage).ChangeToDarkTheme();
+                ((MainPage)Application.Current.MainPage).ApplyTheme("light");
             }
-            else
+            else if (themePicker.SelectedIndex == 1)
             {
-                ((MainPage)Application.Current.MainPage).ChangeToLightTheme();
+                ((MainPage)Application.Current.MainPage).ApplyTheme("dark");
             }
+            themePicker.SelectedIndex = -1;
         }
 
         private async void ResetData_Clicked(object sender, EventArgs e)
         {
-            bool confirmed = await DisplayAlert("Confirmation", "This will reset all data in the app, including exercise completed, goals and settings. Continue?", 
+            bool confirmed = await DisplayAlert("Confirmation", "This will reset all data in the app, including exercise completed, goals and settings. Continue?",
                 "Confirm", "Cancel");
             if (confirmed)
             {
-                ResetData();
+                AppSettings.ResetData();
                 await DisplayAlert("Reset Data", "App data has been reset.", "OK");
             }
-        }
-        public void ResetData()
-        {
-            Exercise.minutesOfExerciseDone = 0;
-            Exercise.dailyTarget = 30;
         }
     }
 }

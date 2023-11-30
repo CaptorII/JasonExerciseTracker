@@ -8,12 +8,16 @@
         <StackLayout Padding="20" BackgroundColor="{StaticResource ThemeBackgroundColour}">
             <Label x:Name="DateField" Text="01/01/2023" Margin="0, 0, 0, 20" TextColor="{StaticResource ThemeTextColour}" />
             <Label Text="Your Average Exercise Per Day:" TextColor="{StaticResource ThemeTextColour}" />
-            <Label x:Name="AverageMinsField" Text="0" FontSize="Large" HorizontalOptions="CenterAndExpand" />
+            <StackLayout Orientation="Horizontal">
+                <Label HorizontalOptions="CenterAndExpand" />
+                <Label x:Name="AverageMinsField" Text="0" FontSize="Large" HorizontalOptions="CenterAndExpand" />
+                <Label Text="Minutes" HorizontalOptions="StartAndExpand" VerticalOptions="Center" TextColor="{StaticResource ThemeTextColour}" />
+            </StackLayout>
             <Label Text="Your Total Exercise This Year:" TextColor="{StaticResource ThemeTextColour}" />
             <Label x:Name="TotalMinsField" Text="00:00" FontSize="Large" HorizontalOptions="CenterAndExpand" />
             <Label Text="Your Exercise Goal:" TextColor="{StaticResource ThemeTextColour}" />
             <Label x:Name="TargetMinsField" Text="00:00" FontSize="Large" HorizontalOptions="CenterAndExpand" TextColor="{StaticResource ThemeTextColour}" />
-            <Label Text="Minutes To Reach Goal:" TextColor="{StaticResource ThemeTextColour}" />
+            <Label Text="Exercise Required To Reach Goal:" TextColor="{StaticResource ThemeTextColour}" />
             <Label x:Name="MinsToTargetField" Text="00:00" FontSize="Large" HorizontalOptions="CenterAndExpand" TextColor="{StaticResource ThemeTextColour}" />
         </StackLayout>
     </ContentPage.Content>

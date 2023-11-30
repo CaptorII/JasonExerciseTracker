@@ -17,7 +17,7 @@ namespace JasonExerciseTracker.Views
         {
             if (double.TryParse(targetEntry.Text, out double mins))
             {
-                if (mins < 5)
+                if (mins < 5) // set bounds of target - 5-60 mins
                 {
                     mins = 5;
                 }
@@ -25,8 +25,8 @@ namespace JasonExerciseTracker.Views
                 {
                     mins = 60;
                 }
-                Exercise.dailyTarget = (int)mins;
-                AppSettings.DailyTarget = (int)mins;
+                Exercise.dailyTarget = (int)mins; // update target
+                AppSettings.DailyTarget = (int)mins; // save new target
                 targetEntry.Text = "";
             }
         }
